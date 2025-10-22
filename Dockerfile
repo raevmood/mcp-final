@@ -1,4 +1,4 @@
-FROM python:3.9-slim-buster as builder
+FROM python:3.9-slim-bullseye as builder
 WORKDIR /app
 
 # Install build dependencies
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-FROM python:3.9-slim-buster
+FROM python:3.9-slim-bullseye
 WORKDIR /app
 
 # Copy Python packages from builder
